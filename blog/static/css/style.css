@@ -1,0 +1,88 @@
+.navbar-inverse .navbar-brand {
+  color: #fff;
+  font-size: 22px;
+  padding-top: 25px;
+}
+
+.navbar-right {
+  padding-top: 12px;
+  font-size: 16px;
+}
+
+footer.navbar {
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+}
+
+footer p {
+  padding-top: 10px;
+}
+
+footer a {
+  color: #87CEFA;
+}
+
+.row {
+  margin-bottom: 70px;
+}
+
+.label-info {
+  font-size: 12px;
+}
+
+form.comment-form, 
+form.share-post {
+  max-width: 375px;
+}
+
+form.edit-form {
+  height: 100%;
+}
+
+form.edit-form textarea.form-control {
+  min-height: 400px;
+}
+
+.btn-group {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.btn-group button {
+  margin-right: 5px;
+  color: #fff;
+}
+
+.btn-group button a {
+  color: #fff;
+}
+
+.btn-group button a:hover {
+  text-decoration: none;
+}
+
+.hr-bottom {
+  border: 3px solid #337AB7;
+}
+
+.edit-profile-form,
+.register-form,
+.pass-change-form {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+#share-form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .edit-profile-form,
+  .register-form,
+  .pass-change-form {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}

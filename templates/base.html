@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {# bootstrap css #}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  {# custom css #}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {# jquery #}
+  <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+  {# bootstrap js #}
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="row">
+
+    {# content #}
+    <div class="col-md-12">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="{% url 'blog:post_list' %}">FitnessLaFace</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+          {% if request.user.is_authenticated %}
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'dashboard' %}"><span class="glyphicon glyphicon-log-in"></span>  Dashboard</a></li>
+            <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span> Log Out</a></li>
+          </ul>
+          {% else %}
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+            <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
+          </ul>
+          {% endif %}
+        </div>
+
+      </div>
+    </nav>
+    <!-- /navbar -->
+
+    {% block content %}
+    {% endblock %}
+    </div>
+
+    {# messages #}
+    {% if messages %}
+    <p class="messages">
+      {% for message in messages %}
+      <h4 class="text-center">
+      {{ message|safe }}
+      </h4>
+      {% endfor %}
+    </p>
+    {% endif %}
+
+  </div>
+
+  <footer class="navbar navbar-inverse navbar-fixed-bottom">
+    <p>&copy; {% now 'Y' %} <a href="http://basildavid.com">David Basil</a></p>
+  </footer>
+
+</div><!-- container -->
+
+
+</body>
+</html>

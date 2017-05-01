@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{# context: form  #}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+{# edit post #}
+<h3>Edit post</h3>
+<form action="" method="post" class="edit-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Update" class="btn btn-primary">
+</form>
+
+
+
+{% endblock %}

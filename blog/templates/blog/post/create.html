@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{# context: form #}
+
+{% block title %}Create Post{% endblock %}
+
+{% block content %}
+
+{# create new post #}
+<h2>Create new Post</h2>
+<form action="" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" name="Create Post">
+</form>
+
+{% endblock %}
+

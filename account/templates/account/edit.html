@@ -1,0 +1,17 @@
+{% extends 'account/base.html' %}
+{# context: user_form, profile_form #}
+
+{% block title %}Edit account{% endblock %}
+
+{% block content %}
+
+<h4 class="text-center">Edit your info:</h4>
+
+<form action="" method="post" class="edit-profile-form" enctype="multipart/form-data">{# enables file uploads #}
+  {% csrf_token %}
+  {{ user_form.as_p }}
+  {{ profile_form.as_p }}
+  <input type="submit" value="Save changes" class="btn btn-primary">
+</form>
+
+{% endblock %}

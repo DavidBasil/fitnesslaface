@@ -1,0 +1,11 @@
+{% extends 'account/base.html' %}
+{# context: new_user #}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+  
+<h3 class="text-center">Welcome {{ new_user.first_name }}!</h3>
+<p class="text-center">Your account has been created. You can <a href="{% url 'login' %}">Log In </a>now.</p>
+
+{% endblock %}

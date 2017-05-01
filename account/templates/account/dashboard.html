@@ -1,0 +1,61 @@
+{% extends 'account/base.html' %}
+{# context: posts #}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="header">
+
+  <div class="panel panel-primary">
+
+    <div class="panel-heading">
+      <h3 class="text-center">DASHBOARD</h3>
+    </div>
+
+    <div class="panel-body text-center">
+    {# menu #}
+      {% if request.user.is_authenticated %}
+      <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-success">
+          <a href="{% url 'blog:post_list' %}">
+            <span class="glyphicon glyphicon-th-list"></span> Blog
+          </a>
+        </button>
+        <button type="button" class="btn btn-success">
+          <a href="{% url 'blog:post_create' %}">
+          <span class="glyphicon glyphicon-pencil"></span> Create new Post</a>
+        </button>
+        <button type="button" class="btn btn-success">
+          <a href="{% url 'edit' %}">
+          <span class="glyphicon glyphicon-edit"></span> Edit profile
+          </a>
+        </button>
+        <button type="button" class="btn btn-success">
+          <a href="{% url 'password_change' %}">
+          <span class="glyphicon glyphicon-warning-sign"></span> Change password
+          </a>
+        </button>
+
+      </div>
+
+    </div>
+    <hr class="hr-bottom">
+    {% endif %}
+
+    {# list of user's posts #}
+    <h3 class="text-center">YOUR POSTS</h3>
+    <div class="list-group text-center">
+      {% for post in posts %}
+        <a href="{{ post.get_absolute_url }}" class="list-group-item">
+        <h4>{{ post.title }}</h4></a>
+      {% empty %}
+      <p>No posts yet.</p>
+      {% endfor %}
+    </div>
+
+  </div><!-- /panel -->
+
+</div><!-- /header -->
+
+{% endblock %}
